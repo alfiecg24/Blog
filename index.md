@@ -1,7 +1,3 @@
----
-title: Alfie's Blog
----
-
 # Hi, I'm Alfie
 ## A 15-year-old iOS developer and hacker
 
