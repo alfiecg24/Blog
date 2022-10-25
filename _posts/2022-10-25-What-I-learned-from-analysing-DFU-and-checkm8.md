@@ -33,7 +33,11 @@ The code begins by verifying that the response length is not 0, before making su
 
 The amount of data left to be transferred and the amount of data to copy into the IO buffer are calculated, before the data that has been received over USB is copied into the IO buffer. After this, the IO buffer is expanded by however much data was copied over.
 
-After this, the function checks if either all the data has been received or the amount of data received does not equal the maximum packet size. If either of those conditions are true, then it is made sure that the interface number is greater than or equal to 0 + that the interface number is less than the number of registered interfaces + the interface that will handle the request has a valid callback function after the data phase has finished.
+After this, the function checks if either all the data has been received or the amount of data received does not equal the maximum packet size. If either of those conditions are true, then it is made sure that
+
+* the interface number is greater than or equal to 0
+* the interface number is less than the number of registered interfaces
+* the interface that will handle the request has a valid callback function after the data phase has finished.
 
 This callback is then called, and a zero-length packet is added to the execution queue to signify that the transfer is complete.
 
